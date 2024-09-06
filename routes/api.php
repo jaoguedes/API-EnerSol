@@ -23,6 +23,13 @@ use App\Http\Controllers\CarrinhoController;
 
 // Route::apiResource('usuarios', UserController::class);
 
+// Rota específica para compras no carrinho
+Route::post('carrinho/comprar', [CarrinhoController::class, 'comprar']);
+
+Route::apiResource('usuarios', UserController::class);
+Route::post('usuarios', [UserController::class, 'login']);
+
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('placas', [PlacaController::class, 'index']);
     Route::get('placas/{id}', [PlacaController::class, 'show']);
@@ -34,8 +41,3 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('geradores', GeradorController::class);
     Route::apiResource('analises', AnalisePlacaController::class);
 });
-
-// Rota específica para compras no carrinho
-Route::post('carrinho/comprar', [CarrinhoController::class, 'comprar']);
-
-Route::post('usuarios', [UserController::class, 'store']);

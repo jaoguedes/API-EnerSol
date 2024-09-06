@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\AnalisePlaca;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -52,7 +53,14 @@ class UserController extends Controller
         // Cria automaticamente uma análise da placa para o usuário criado
         AnalisePlaca::create(['id_usuario' => $usuario->id]);
 
-        return response()->json($usuario, 201);
+        $token = $usuario->createToken('auth_token')->plainTextToken;
+
+        // Retorno da resposta
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'Bearer',
+             $usuario,201
+        ]);
     }
 
     public function update(Request $request, $id)

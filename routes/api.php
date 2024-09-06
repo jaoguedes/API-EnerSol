@@ -9,6 +9,7 @@ use App\Http\Controllers\GeradorController;
 use App\Http\Controllers\AnalisePlacaController;
 use App\Http\Controllers\CarrinhoController;
 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -20,15 +21,21 @@ use App\Http\Controllers\CarrinhoController;
 |
 */
 
-Route::apiResource('usuarios', UserController::class);
-Route::apiResource('placas', PlacaController::class);
-Route::apiResource('kits', KitController::class);
-Route::apiResource('geradores', GeradorController::class);
-Route::apiResource('analises', AnalisePlacaController::class);
+// Route::apiResource('usuarios', UserController::class);
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('placas', [PlacaController::class, 'index']);
+    Route::get('placas/{id}', [PlacaController::class, 'show']);
+    Route::post('placas', [PlacaController::class, 'store']);
+    Route::put('placas/{id}', [PlacaController::class, 'update']);
+    Route::delete('placas/{id}', [PlacaController::class, 'destroy']);
+
+    Route::apiResource('kits', KitController::class);
+    Route::apiResource('geradores', GeradorController::class);
+    Route::apiResource('analises', AnalisePlacaController::class);
+});
 
 // Rota específica para compras no carrinho
 Route::post('carrinho/comprar', [CarrinhoController::class, 'comprar']);
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::post('usuarios', [UserController::class, 'store']);

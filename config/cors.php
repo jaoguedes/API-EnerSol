@@ -15,20 +15,12 @@ return [
     |
     */
 
-    'paths' => ['api/*', 'sanctum/csrf-cookie'],
-
-    'allowed_methods' => ['*'],
-
-    'allowed_origins' => ['*'],
-
+    'paths' => ['api/*'], // Isso permitirá que o CORS funcione para todas as rotas da API
+    'allowed_methods' => ['*'], // Permite todos os métodos (GET, POST, etc.)
+    'allowed_origins' => ['http://localhost:3000'], // Permita apenas seu front-end React
     'allowed_origins_patterns' => [],
-
-    'allowed_headers' => ['*'],
-
+    'allowed_headers' => ['*'], // Permite todos os cabeçalhos
     'exposed_headers' => [],
-
     'max_age' => 0,
-
-    'supports_credentials' => false,
-
+    'supports_credentials' => true, // Necessário para credenciais (cookies, sessões, etc.)
 ];

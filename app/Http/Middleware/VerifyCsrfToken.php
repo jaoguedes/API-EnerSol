@@ -14,5 +14,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         // Coloque suas rotas que não precisam de CSRF aqui
         'api/usuarios',
+        'api/placas',
+        'api/kits',
     ];
 }

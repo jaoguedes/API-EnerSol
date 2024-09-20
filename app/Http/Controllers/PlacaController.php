@@ -6,7 +6,7 @@ use App\Models\Placa;
 use Illuminate\Http\Request;
 
 class PlacaController extends Controller
-{
+{ 
     public function index()
     {
         $placas = Placa::all();

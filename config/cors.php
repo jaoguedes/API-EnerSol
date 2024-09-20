@@ -15,12 +15,12 @@ return [
     |
     */
 
-    'paths' => ['api/*'], // Isso permitirá que o CORS funcione para todas as rotas da API
-    'allowed_methods' => ['*'], // Permite todos os métodos (GET, POST, etc.)
-    'allowed_origins' => ['http://localhost:3000'], // Permita apenas seu front-end React
+    'paths' => ['api/*'],
+    'allowed_methods' => ['*'],
+    'allowed_origins' => ['http://localhost:3000', 'http://localhost:60439','http://localhost:60852', 'http://localhost:63971','http://localhost:51908' ], // Adicione aqui
     'allowed_origins_patterns' => [],
-    'allowed_headers' => ['*'], // Permite todos os cabeçalhos
+    'allowed_headers' => ['*'],
     'exposed_headers' => [],
     'max_age' => 0,
-    'supports_credentials' => true, // Necessário para credenciais (cookies, sessões, etc.)
+    'supports_credentials' => true,
 ];

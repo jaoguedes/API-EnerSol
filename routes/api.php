@@ -28,8 +28,8 @@ Route::post('carrinho/comprar', [CarrinhoController::class, 'comprar']);
 Route::get('usuarios', [UserController::class, 'index']);
 Route::post('/usuarios/login', [UserController::class, 'login']);
 Route::post('usuarios', [UserController::class, 'store']);
-Route::put('kits/{id}', [UserController::class, 'update']);
-Route::delete('kits/{id}', [UserController::class, 'destroy']);
+Route::put('usuarios/{id}', [UserController::class, 'update']);
+Route::delete('usuarios/{id}', [UserController::class, 'destroy']);
 
 
 Route::get('kits', [KitController::class, 'index']);

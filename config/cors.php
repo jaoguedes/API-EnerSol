@@ -17,7 +17,7 @@ return [
 
     'paths' => ['api/*'],
     'allowed_methods' => ['*'],
-    'allowed_origins' => ['http://localhost:3000', 'http://localhost:60439','http://localhost:60852', 'http://localhost:63971','http://localhost:51908' ], // Adicione aqui
+    'allowed_origins' => ['http://localhost:3000', 'http://localhost:3007' ], // Adicione aqui
     'allowed_origins_patterns' => [],
     'allowed_headers' => ['*'],
     'exposed_headers' => [],
